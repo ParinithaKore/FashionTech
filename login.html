@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Fashion AI</title>
+  <style>                    
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    a {
+      display: block;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #007bff;
+      text-decoration: none;
+    }
+    .error { color: red; font-size: 14px; }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <img src="back3.png" alt="Fashion Tech Logo" class="logo" />
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+    <div class="error" id="error"></div>
+    <a href="register.html">New user? Register</a>
+    <a href="forgot.html">Forgot Password?</a>
+  </div>
+
+  <script>
+    function login() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const error = document.getElementById("error");
+
+      const storedUser = localStorage.getItem("user");
+      const storedPass = localStorage.getItem("pass");
+
+      if (username === storedUser && password === storedPass) {
+        window.location.href = "index.html";
+      } else {
+        error.textContent = "Invalid username or password.";
+      }
+    }
+  </script>
+
+</body>
+</html>
